@@ -1,4 +1,4 @@
-package util;
+package br.com.fwtj.util.fxml;
 
 import java.util.ArrayList;
 import javafx.scene.control.TextField;

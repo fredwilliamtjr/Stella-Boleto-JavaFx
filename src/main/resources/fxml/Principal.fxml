@@ -7,10 +7,10 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import util.*?>
+<?import br.com.fwtj.util.fxml.*?>
 <?import javafx.collections.FXCollections?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="298.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fwtj.boletojavafx.FXMLController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="298.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fwtj.boletojavafx.FXMLPrincipalController">
     <children>
         
         <TextField id="nome" fx:id="nome" layoutX="14.0" layoutY="50.0" prefHeight="25.0" prefWidth="355.0" />
@@ -22,8 +22,9 @@
         <MaskTextField id="cep" fx:id="cep" layoutX="125.0" layoutY="176.0" prefHeight="25.0" prefWidth="69.0" />
         <TextField id="cidade" fx:id="cidade" layoutX="203.0" layoutY="176.0" prefHeight="25.0" prefWidth="91.0" />
         <ComboBox id="uf" fx:id="uf" layoutX="301.0" layoutY="176.0" prefHeight="25.0" prefWidth="69.0" />
-        <CheckBox fx:id="itau" layoutX="54.0" layoutY="213.0" mnemonicParsing="false" text="Itaú (PNG)" />
-        <CheckBox fx:id="brasil" layoutX="212.0" layoutY="213.0" mnemonicParsing="false" text="Banco do Brasil (PDF)" />
+        <CheckBox id="itau" fx:id="itau" layoutX="17.0" layoutY="213.0" mnemonicParsing="false" text="Itaú (PNG)" />
+        <CheckBox id="brasil" fx:id="brasil" layoutX="116.0" layoutY="213.0" mnemonicParsing="false" text="Banco do Brasil (PDF)" />
+        <CheckBox id="bradesco" fx:id="bradesco" layoutX="267.0" layoutY="213.0" mnemonicParsing="false" text="Bradesco (PDF)" />
         <Button fx:id="novo" layoutX="14.0" layoutY="238.0" mnemonicParsing="false" onAction="#botaoEmitir" prefHeight="25.0" prefWidth="355.0" text="Emitir" />
         
         <Text layoutX="14.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF / CNPJ" />
@@ -41,11 +42,13 @@
             <menus>
                 <Menu mnemonicParsing="false" text="Arquivo">
                     <items>
+                  <MenuItem mnemonicParsing="false" onAction="#menuConfiguracao" text="Ler Arquivo de Retorno Bradesco" />
                         <MenuItem mnemonicParsing="false" onAction="#menuSair" text="Sair" />
                     </items>
                 </Menu>
             </menus>
         </MenuBar>
+      
         
     </children>
 </AnchorPane>

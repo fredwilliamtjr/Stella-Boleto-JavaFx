@@ -23,9 +23,13 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import util.MaskTextField;
+import br.com.fwtj.util.fxml.MaskTextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class FXMLController implements Initializable {
+public class FXMLPrincipalController implements Initializable {
 
     @FXML
     private TextField nome;
@@ -61,12 +65,15 @@ public class FXMLController implements Initializable {
     private CheckBox brasil;
 
     @FXML
+    private CheckBox bradesco;
+
+    @FXML
     private Text status;
 
     @FXML
     private void botaoEmitir(ActionEvent event) throws FileNotFoundException, IOException {
 
-        EmitirBoleto boleto = new EmitirBoleto();
+//        EmitirBoleto boleto = new EmitirBoleto();
 
         String opcao = "";
 
@@ -74,7 +81,7 @@ public class FXMLController implements Initializable {
             opcao = "0";
         }
 
-        if (!itau.isSelected() && !brasil.isSelected()) {
+        if (!itau.isSelected() && !brasil.isSelected() && !bradesco.isSelected()) {
             opcao = "1";
         }
 
@@ -100,23 +107,33 @@ public class FXMLController implements Initializable {
 
             default:
                 if (itau.isSelected()) {
-                    boleto.itau(
-                            nome.getText(), documento.getText(), logradouro.getText(),
-                            bairro.getText(), cep.getText(), cidade.getText(), uf.getSelectionModel().getSelectedItem().toString(), valor.getText(),
-                            vencimento.getValue().getDayOfMonth(), vencimento.getValue().getMonthValue(),
-                            vencimento.getValue().getYear());
+//                    boleto.itau(
+//                            nome.getText(), documento.getText(), logradouro.getText(),
+//                            bairro.getText(), cep.getText(), cidade.getText(), uf.getSelectionModel().getSelectedItem().toString(), valor.getText(),
+//                            vencimento.getValue().getDayOfMonth(), vencimento.getValue().getMonthValue(),
+//                            vencimento.getValue().getYear());
                     status.setText("Boleto Itau Emitido");
                     System.err.println("Terminou a execução do metodo Boleto do Banco Itaú");
 
                 }
                 if (brasil.isSelected()) {
-                    boleto.bancoDoBrasil(
-                            nome.getText(), documento.getText(), logradouro.getText(),
-                            bairro.getText(), cep.getText(), cidade.getText(), uf.getSelectionModel().getSelectedItem().toString(), valor.getText(),
-                            vencimento.getValue().getDayOfMonth(), vencimento.getValue().getMonthValue(),
-                            vencimento.getValue().getYear());
+//                    boleto.bancoDoBrasil(
+//                            nome.getText(), documento.getText(), logradouro.getText(),
+//                            bairro.getText(), cep.getText(), cidade.getText(), uf.getSelectionModel().getSelectedItem().toString(), valor.getText(),
+//                            vencimento.getValue().getDayOfMonth(), vencimento.getValue().getMonthValue(),
+//                            vencimento.getValue().getYear());
                     status.setText("Boleto Banco do Brasil Emitido");
                     System.err.println("Terminou a execução do metodo Boleto do Banco do Brasil");
+                }
+
+                if (bradesco.isSelected()) {
+//                    boleto.bradesco(
+//                            nome.getText(), documento.getText(), logradouro.getText(),
+//                            bairro.getText(), cep.getText(), cidade.getText(), uf.getSelectionModel().getSelectedItem().toString(), valor.getText(),
+//                            vencimento.getValue().getDayOfMonth(), vencimento.getValue().getMonthValue(),
+//                            vencimento.getValue().getYear());
+                    status.setText("Boleto Banco do Bradesco Emitido");
+                    System.err.println("Terminou a execução do metodo Boleto do Banco Bradesco");
                 }
 
         }
@@ -127,13 +144,27 @@ public class FXMLController implements Initializable {
     private void menuSair(ActionEvent event) {
         System.exit(0);
     }
+    
+    @FXML
+    private void menuConfiguracao(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Configuracao.fxml"));
+
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/styles/Styles.css");
+
+        stage.setTitle("Arquivo Retorno Bradesco");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         valor.setMask("N!.NN");
         cep.setMask("NNNNNNNN");
         documento.setMask("N!");
-        
+
         ObservableList items = uf.getItems();
         items.add("AC");
         items.add("AL");
@@ -162,36 +193,6 @@ public class FXMLController implements Initializable {
         items.add("SP");
         items.add("TO");
         uf.setItems(items);
-        
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
 
     }
 
