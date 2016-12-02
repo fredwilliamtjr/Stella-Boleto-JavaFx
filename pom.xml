@@ -48,11 +48,11 @@
         </dependency>
         
         <!-- Boleto Caelum Stela Boleto -->
-<!--        <dependency>
+        <dependency>
             <groupId>br.com.caelum.stella</groupId>
             <artifactId>caelum-stella-boleto</artifactId>
             <version>2.1.2</version>
-        </dependency>-->
+        </dependency>
         
         <!--Obrigatorio para a funcão de geraçao de boleto funcionar-->
         <dependency>
