@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: br.com.tamanhofamilia.jfilehelpers:jfilehelpers:sources:0.3.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/br/com/tamanhofamilia/jfilehelpers/jfilehelpers/0.3.0-SNAPSHOT/jfilehelpers-0.3.0-SNAPSHOT-sources.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/br/com/tamanhofamilia/jfilehelpers/jfilehelpers/0.3.0-SNAPSHOT/jfilehelpers-0.3.0-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/br/com/tamanhofamilia/jfilehelpers/jfilehelpers/0.3.0-SNAPSHOT/jfilehelpers-0.3.0-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
